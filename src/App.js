@@ -1,4 +1,3 @@
-import './App.css';
 import Navbar from "./components/Navbar/Navbar";
 import BudgetOverview from "./components/BudgetOverview/BudgetOverview";
 import IncomeOverview from "./components/IncomeOverview/IncomeOverview";

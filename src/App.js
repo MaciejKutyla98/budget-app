@@ -4,6 +4,7 @@ import IncomeOverview from "./components/IncomeOverview/IncomeOverview";
 import ExpenseOverview from "./components/ExpenseOverview/ExpenseOverview";
 import BudgetForm from "./components/BudgetForm/BudgetForm";
 import Footer from "./components/Footer/Footer";
+import './App.scss';
 
 function App() {
   return (

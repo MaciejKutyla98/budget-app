@@ -1,6 +1,7 @@
 import React from "react";
 import './Navbar.scss';
-import gitHub from '../../assets/GitHub.png'
+import gitHub from '../../assets/GitHub.png';
+
 const Navbar = () => (
     <nav className='navbar' role='navigation' aria-label='main navigation'>
         <div className='navbar_container'>

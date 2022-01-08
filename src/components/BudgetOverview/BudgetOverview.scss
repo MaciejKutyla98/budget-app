@@ -1,0 +1,62 @@
+.section {
+  padding: 3rem 1.5rem;
+  display: block;
+}
+
+.overview {
+
+  &_title {
+
+  }
+
+  &_subtitle {
+
+  }
+
+  &_container {
+    display: flex;
+    flex-direction: column;
+
+    @media (min-width: 900px) {
+      flex-direction: row;
+    }
+
+    &_details {
+      display: flex;
+      flex-direction: column;
+
+      @media (min-width: 900px) {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        gap: 0px 0px;
+        grid-template-areas:
+    "moneyLeft moneyLeft"
+    "totalIncome totalExpense"
+    ". .";
+      }
+
+      &_moneyLeft {
+
+        @media (min-width: 900px) {
+          grid-area: moneyLeft;
+        }
+      }
+
+      &_totalIncome {
+
+        @media (min-width: 900px) {
+          grid-area: totalIncome;
+        }
+      }
+
+      &_totalExpense {
+
+        @media (min-width: 900px) {
+          grid-area: totalExpense;
+        }
+      }
+    }
+  }
+
+}

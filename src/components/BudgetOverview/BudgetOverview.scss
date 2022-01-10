@@ -1,16 +1,25 @@
 .section {
   padding: 3rem 1.5rem;
   display: block;
+  margin-block-start: 0.83em;
+  margin-block-end: 0.83em;
 }
 
 .overview {
 
   &_title {
-
+    color: #363636;
+    font-size: 2rem;
+    font-weight: 600;
+    line-height: 1.125;
   }
 
   &_subtitle {
-
+    color: #4a4a4a;
+    font-size: 1.25rem;
+    font-weight: 400;
+    line-height: 1.25;
+    word-break: break-word;
   }
 
   &_container {
@@ -24,12 +33,15 @@
     &_details {
       display: flex;
       flex-direction: column;
+      width: 100%;
 
       @media (min-width: 900px) {
+        width: 50%;
         display: grid;
         grid-template-columns: 1fr 1fr;
-        grid-template-rows: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
         gap: 0px 0px;
+        justify-items: center;
         grid-template-areas:
     "moneyLeft moneyLeft"
     "totalIncome totalExpense"
@@ -37,26 +49,64 @@
       }
 
       &_moneyLeft {
+        color: #7a7a7a;
+        text-align: center;
+        padding: 1em 0;
 
         @media (min-width: 900px) {
           grid-area: moneyLeft;
         }
+
+        &_amount {
+          font-size: 3rem;
+        }
+
+        &_text {
+          font-size: 1.5rem;
+        }
       }
 
       &_totalIncome {
+        color: #23d160;
+        padding: 1em 0;
 
         @media (min-width: 900px) {
           grid-area: totalIncome;
         }
+
+        &_amount {
+          font-size: 2rem;
+        }
+
+        &_text {
+          font-size: 1rem;
+        }
       }
 
       &_totalExpense {
+        color: #ff3860;
+        padding: 1em 0;
 
         @media (min-width: 900px) {
           grid-area: totalExpense;
         }
+
+        &_amount {
+          font-size: 2rem;
+        }
+
+        &_text {
+          font-size: 1rem;
+        }
+      }
+    }
+
+    &_chart {
+      width: 100%;
+
+      @media (min-width: 900px) {
+        width: 50%;
       }
     }
   }
-
 }

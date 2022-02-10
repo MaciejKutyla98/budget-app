@@ -1,7 +1,6 @@
 import Navbar from "./components/Navbar/Navbar";
 import BudgetOverview from "./components/BudgetOverview/BudgetOverview";
-import IncomeOverview from "./components/IncomeOverview/IncomeOverview";
-import ExpenseOverview from "./components/ExpenseOverview/ExpenseOverview";
+import SingleOverview from "./components/SingleOverview/SingleOverview";
 import BudgetForm from "./components/BudgetForm/BudgetForm";
 import Footer from "./components/Footer/Footer";
 import './App.scss';
@@ -11,8 +10,8 @@ function App() {
     <div className="App">
         <Navbar />
         <BudgetOverview />
-        <IncomeOverview />
-        <ExpenseOverview />
+        <SingleOverview overview='Income'/>
+        <SingleOverview overview='Expense'/>
         <BudgetForm />
         <Footer />
     </div>

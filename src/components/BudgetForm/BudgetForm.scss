@@ -1,0 +1,12 @@
+.button {
+  background-color: #209cee;
+  color: #fff;
+  position: fixed;
+  bottom: 10%;
+  right: 4%;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  display: inline-flex;
+  font-size: 1rem;
+  padding: calc(0.375em - 1px) calc(0.625em - 1px);
+}

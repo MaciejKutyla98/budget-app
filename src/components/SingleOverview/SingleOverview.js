@@ -4,10 +4,10 @@ import './SingleOverview.scss';
 function SingleOverview(props) {
     return (
         <section className='section'>
-            <div className='overview'>
-                <h1 className='overview_title'>{props.overview} Overview</h1>
-                <div className='overview_container'>
-                    <div className='overview_container_details'>
+            <div className='singleOverview'>
+                <h1 className='singleOverview_title'>{props.overview} Overview</h1>
+                <div className='singleOverview_container'>
+                    <div className='singleOverview_container_details'>
                         <table className="table">
                             <thead>
                                 <tr>

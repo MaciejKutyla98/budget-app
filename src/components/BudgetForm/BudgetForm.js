@@ -1,8 +1,10 @@
+import './BudgetForm.scss';
+
 function BudgetForm(props) {
     return (
-        <div className="budgetForm">
-            <p>Initial component for Budget Form</p>
-        </div>
+        <aside className="aside_modify_budget">
+            <button className='button add-action'>+</button>
+        </aside>
     )
 }
 

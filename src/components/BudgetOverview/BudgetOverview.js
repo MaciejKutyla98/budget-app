@@ -1,11 +1,22 @@
-import React from "react";
+import React, {useEffect} from "react";
+import {useSelector} from "react-redux";
 import './BudgetOverview.scss';
 
 function BudgetOverview(props) {
     const lastUpdate = 'Jan 08, 2022';
-    const moneyLeft = 0;
-    const totalIncome = 0;
-    const totalExpense = 0;
+    const amountOfMoney = useSelector(state => state.budget.amountOfMoney);
+    const totalIncome = useSelector(state => state.budget.totalIncome);
+    const totalExpense = useSelector(state => state.budget.totalExpense);
+
+    useEffect(() => {
+        if (amountOfMoney > 0){
+            document.getElementById("amountOfMoney").style.color = '#23d160';
+        } else if (amountOfMoney < 0) {
+            document.getElementById("amountOfMoney").style.color = '#ff3860';
+        } else {
+            document.getElementById("amountOfMoney").style.color = '#7a7a7a';
+        }
+    },[amountOfMoney]);
     return (
         <section className='section'>
             <div className='overview'>
@@ -14,7 +25,7 @@ function BudgetOverview(props) {
                 <div className='overview_container'>
                     <div className='overview_container_details'>
                         <div className='overview_container_details_moneyLeft'>
-                            <p><span className='overview_container_details_moneyLeft_amount'>$ {moneyLeft.toFixed(2)}</span></p>
+                            <p><span className='overview_container_details_moneyLeft_amount' id='amountOfMoney'>$ {amountOfMoney.toFixed(2)}</span></p>
                             <p className='overview_container_details_moneyLeft_text'>Money Left</p>
                         </div>
                         <div className='overview_container_details_totalIncome'>

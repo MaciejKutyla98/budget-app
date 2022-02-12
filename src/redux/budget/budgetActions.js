@@ -1,15 +1,21 @@
 import {ADD_EXPENSE, ADD_INCOME} from "./budgetTypes";
 
-export const addIncome = (amount) => {
+export const addIncome = (description, amount) => {
     return {
         type: ADD_INCOME,
-        payload: amount
-    }
+        payload: {
+            description,
+            amount
+        }
+    };
 }
 
-export const addExpense = (amount) => {
+export const addExpense = (description,amount) => {
     return {
         type: ADD_EXPENSE,
-        payload: amount
+        payload: {
+            description,
+            amount
+        }
     }
 }

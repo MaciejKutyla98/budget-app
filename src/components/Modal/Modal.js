@@ -1,10 +1,29 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import {useKey} from 'react-use';
+import {useDispatch} from "react-redux";
 import './Modal.scss';
+import {addExpense, addIncome} from "../../redux";
+
 
 const Modal = props => {
+    const [selectedDecision, getSelectedDecision] = useState('income');
+    const [amount, getAmount] = useState(0);
+    const [description, getDescription] = useState('');
+    const dispatch = useDispatch();
+
     useKey('Escape', () => props.onClose())
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log('Form submitted')
+        if (selectedDecision === 'income') {
+            dispatch(addIncome(description, amount))
+        } else {
+            dispatch(addExpense(description, amount))
+        }
+    }
+    console.log(amount)
+    console.log(description)
     return (
             <div className={`modal ${props.show ? 'show' : ''}`} onClick={props.onClose}>
                 <div className='modal-content' onClick={e => e.stopPropagation()}>
@@ -16,7 +35,7 @@ const Modal = props => {
                         <div className='field'>
                             <label className='label'>Budget Category</label>
                             <div className='select'>
-                                <select className='source'>
+                                <select className='source' onChange={(e) => getSelectedDecision(e.target.value)}>
                                     <option value='income'>Income</option>
                                     <option value='expense'>Expense</option>
                                 </select>
@@ -24,13 +43,13 @@ const Modal = props => {
                         </div>
                         <div className='field is-grouped'>
                             <div className='control left'>
-                                <input type='text' className='input description'  placeholder='Description' />
-                                <input type='number' className='input amount'  placeholder='$ Enter Amount'/>
+                                <input type='text' className='input description'  placeholder='Description' onChange={(e) => getDescription(e.target.value)}/>
+                                <input type='number' className='input amount'  placeholder='$ Enter Amount' onChange={(e) => getAmount(parseInt(e.target.value))}/>
                             </div>
                         </div>
                     </form>
                     <div className='modal-footer'>
-                        <button className='button add' onClick={props.onClose}>Add</button>
+                        <button type='submit' onClick={(e) => handleSubmit(e)}  className='button add'>Add</button>
                     </div>
                 </div>
             </div>

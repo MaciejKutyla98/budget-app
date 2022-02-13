@@ -6,24 +6,25 @@ import Footer from "./components/Footer/Footer";
 import './App.scss';
 import Modal from "./components/Modal/Modal";
 import {useState} from "react";
-import {Provider} from "react-redux";
-import store from "./redux/store";
+import {Provider, useSelector} from "react-redux";
 
 function App() {
     const [show, setShow] = useState(false)
+    const incomesList = useSelector(state => state.budget.totalIncome);
+    const expensesList = useSelector(state => state.budget.totalExpense);
+    delete incomesList[0];
+    delete expensesList[0];
 
     return (
-        <Provider store={store}>
             <div className="App">
                 <Navbar />
                 <BudgetOverview />
-                <SingleOverview overview='Income'/>
-                <SingleOverview overview='Expense'/>
+                <SingleOverview overview='Income' list={incomesList}/>
+                <SingleOverview overview='Expense' list={expensesList}/>
                 <BudgetForm onClick={() => setShow(true)}/>
                 <Modal onClose={() => setShow(false)} show={show}/>
                 <Footer />
             </div>
-        </Provider>
   );
 }
 

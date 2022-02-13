@@ -16,14 +16,14 @@ function SingleOverview(props) {
                                 </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <td>Example 1</td>
-                                <td>$10</td>
-                            </tr>
-                            <tr>
-                                <td>Example 2</td>
-                                <td>$17</td>
-                            </tr>
+                            {
+                                props.list.map((list, index) => (
+                                    <tr key={'index-' + index} data-income-index={index}>
+                                        <td>{list.description}</td>
+                                        <td>${list.amount}</td>
+                                    </tr>
+                                ))
+                            }
                             </tbody>
                         </table>
                     </div>

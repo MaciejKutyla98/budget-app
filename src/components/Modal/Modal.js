@@ -21,6 +21,7 @@ const Modal = props => {
         } else {
             dispatch(addExpense(description, amount))
         }
+        props.onClose();
     }
     console.log(amount)
     console.log(description)

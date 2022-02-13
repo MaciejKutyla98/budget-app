@@ -4,9 +4,9 @@ import './BudgetOverview.scss';
 
 function BudgetOverview(props) {
     const lastUpdate = 'Jan 08, 2022';
-    const amountOfMoney = useSelector(state => state.budget.amountOfMoney);
-    const totalIncome = useSelector(state => state.budget.totalIncome);
-    const totalExpense = useSelector(state => state.budget.totalExpense);
+    const totalIncome = useSelector(state => state.budget.totalIncome.reduce((a, b) => a + b, 0));
+    const totalExpense = useSelector(state => state.budget.totalExpense.reduce((a, b) => a + b, 0));
+    const amountOfMoney = totalIncome - totalExpense;
 
     useEffect(() => {
         if (amountOfMoney > 0){

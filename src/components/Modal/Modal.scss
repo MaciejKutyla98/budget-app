@@ -149,7 +149,13 @@
 }
 
 .amount {
-  margin-left: 2.25rem;
+  margin-left: 0rem;
+  margin-top: 0.5rem;
+
+  @media (min-width: 900px) {
+    margin-left: 2.25rem;
+    margin-top: 0rem;
+  }
 }
 
 .modal-footer {

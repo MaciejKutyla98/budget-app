@@ -3,6 +3,7 @@
   display: block;
   margin-block-start: 0.83em;
   margin-block-end: 0.83em;
+
 }
 
 .singleOverview {
@@ -12,11 +13,19 @@
     font-size: 2rem;
     font-weight: 600;
     line-height: 1.125;
+    text-align: center;
+
+    @media (min-width: 900px) {
+      margin-left: 15rem;
+      text-align: left;
+    }
+
   }
 
   &_container {
     display: flex;
     flex-direction: column;
+    justify-content: center;
 
     @media (min-width: 900px) {
       flex-direction: row;
@@ -37,7 +46,7 @@
       width: 100%;
 
       @media (min-width: 900px) {
-        width: 50%;
+        width: 25%;
       }
     }
   }
@@ -72,4 +81,5 @@
   padding: 0.5em 0.75em;
   vertical-align: top;
 }
+
 

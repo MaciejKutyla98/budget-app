@@ -31,7 +31,7 @@ const Modal = props => {
                         <p className='modal-title'>Add New Budget</p>
                         <button className='button delete' aria-label='close' onClick={props.onClose}>x</button>
                     </div>
-                    <form className='modal-body'>
+                    <form className='modal-body' onSubmit={(e) => handleSubmit(e)}>
                         <div className='field'>
                             <label className='label'>Budget Category</label>
                             <div className='select'>
@@ -43,14 +43,29 @@ const Modal = props => {
                         </div>
                         <div className='field is-grouped'>
                             <div className='control left'>
-                                <input type='text' className='input description'  placeholder='Description' onChange={(e) => getDescription(e.target.value)}/>
-                                <input type='number' className='input amount'  placeholder='$ Enter Amount' onChange={(e) => getAmount(parseInt(e.target.value))}/>
+                                <input type='text'
+                                       className='input description'
+                                       placeholder='Description'
+                                       onChange={(e) => getDescription(e.target.value)}
+                                       required
+                                       minLength="3"
+                                       maxLength="60"
+                                />
+                                <input type='number'
+                                       step='0.01'
+                                       className='input amount'
+                                       placeholder='$ Enter Amount'
+                                       onChange={(e) => getAmount(parseInt(e.target.value))}
+                                       required
+                                       min="0.01"
+                                       max="1000000"
+                                />
                             </div>
                         </div>
-                    </form>
                     <div className='modal-footer'>
-                        <button type='submit' onClick={(e) => handleSubmit(e)}  className='button add'>Add</button>
+                        <input type='submit' className='button add' value='Add'/>
                     </div>
+                    </form>
                 </div>
             </div>
     )

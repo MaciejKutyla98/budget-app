@@ -28,9 +28,11 @@ function SingleOverview(props) {
                             </tbody>
                         </table>
                     </div>
-                    <div className='singleOverview_container_chart'>
-                         <SingleChart  overview={props.overview} list={props.list} />
-                    </div>
+                    {props.list.length == 1 ? <div></div> : (
+                        <div className='singleOverview_container_chart'>
+                            <SingleChart  overview={props.overview} list={props.list} />
+                        </div>
+                    )}
                 </div>
             </div>
         </section>

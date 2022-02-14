@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@hookform/resolvers": "^2.8.8",
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
@@ -19,7 +20,8 @@
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.4.1",
     "sass": "^1.45.2",
-    "web-vitals": "^2.1.2"
+    "web-vitals": "^2.1.2",
+    "yup": "^0.32.11"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -46,6 +48,7 @@
     ]
   },
   "devDependencies": {
+    "react-hook-form": "^7.27.0",
     "react-use": "^17.3.2"
   }
 }

@@ -50,9 +50,11 @@ function BudgetOverview(props) {
                             <p className='overview_container_details_totalIncome_text'>Total Expense</p>
                         </div>
                     </div>
-                    <div className='overview_container_chart'>
+                    {(totalExpense == 0 && totalIncome == 0) ?  <div></div> : (
+                        <div className='overview_container_chart'>
                         <BudgetChart totalIncome={totalIncome} totalExpense={totalExpense} amountOfMoney={amountOfMoney}/>
-                    </div>
+                        </div>)}
+
                 </div>
             </div>
         </section>

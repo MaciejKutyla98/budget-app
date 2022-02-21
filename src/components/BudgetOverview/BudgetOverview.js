@@ -4,7 +4,17 @@ import './BudgetOverview.scss';
 import BudgetChart from "./BudgetChart";
 
 function BudgetOverview(props) {
-    const lastUpdate = 'Jan 08, 2022';
+    const lastUpdate = () => {
+        const monthNames = ["January", "February", "March", "April", "May", "June",
+            "July", "August", "September", "October", "November", "December"];
+        const dateObj = new Date();
+        const month = monthNames[dateObj.getMonth()];
+        const day = String(dateObj.getDate()).padStart(2, '0');
+        const year = dateObj.getFullYear();
+        const output = month  + '\n'+ day  + ',' + year;
+        return output;
+    }
+
     const totalIncome = useSelector(state => {
         const incomeList = [];
         state.budget.totalIncome.forEach((totalIncome) => {
@@ -22,6 +32,7 @@ function BudgetOverview(props) {
     const amountOfMoney = totalIncome - totalExpense;
 
     useEffect(() => {
+        lastUpdate();
         if (amountOfMoney > 0){
             document.getElementById("amountOfMoney").style.color = '#23d160';
         } else if (amountOfMoney < 0) {
@@ -34,7 +45,7 @@ function BudgetOverview(props) {
         <section className='section'>
             <div className='overview'>
                 <h1 className='overview_title'>Budget Overview</h1>
-                <h2 className='overview_subtitle'>Last update: {lastUpdate}</h2>
+                <h2 className='overview_subtitle'>Last update: {lastUpdate()}</h2>
                 <div className='overview_container'>
                     <div className='overview_container_details'>
                         <div className='overview_container_details_moneyLeft'>

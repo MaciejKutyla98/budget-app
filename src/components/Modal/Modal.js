@@ -28,7 +28,7 @@ const Modal = props => {
                 <div className='modal-content' onClick={e => e.stopPropagation()}>
                     <div className='modal-header'>
                         <p className='modal-title'>Add New Budget</p>
-                        <button className='button delete' aria-label='close' onClick={props.onClose}>x</button>
+                        <button className='button delete' aria-label='close' onClick={props.onClose}> x </button>
                     </div>
                     <form className='modal-body' onSubmit={(e) => handleSubmit(e)}>
                         <div className='field'>
@@ -52,6 +52,7 @@ const Modal = props => {
                                        required
                                        minLength="3"
                                        maxLength="60"
+                                   aria-label='description-input'
                                 />
                                 <input type='number'
                                        step='0.01'
@@ -61,6 +62,7 @@ const Modal = props => {
                                        required
                                        min="0.01"
                                        max="1000000"
+                                       aria-label='amount-input'
                                 />
                             </div>
                         </div>

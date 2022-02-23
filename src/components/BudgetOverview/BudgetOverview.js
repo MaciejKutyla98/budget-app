@@ -22,6 +22,7 @@ function BudgetOverview(props) {
         })
         return incomeList.reduce((a, b) => a + b, 0)
     });
+
     const totalExpense = useSelector(state => {
         const expenseList = [];
         state.budget.totalExpense.forEach((totalExpense) => {
@@ -41,6 +42,7 @@ function BudgetOverview(props) {
             document.getElementById("amountOfMoney").style.color = '#7a7a7a';
         }
     },[amountOfMoney]);
+
     return (
         <section className='section'>
             <div className='overview'>

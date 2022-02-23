@@ -15,7 +15,6 @@ const Modal = props => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log('Form submitted')
         if (selectedDecision === 'income') {
             dispatch(addIncome(description, amount))
         } else {
@@ -35,9 +34,12 @@ const Modal = props => {
                         <div className='field'>
                             <label className='label'>Budget Category</label>
                             <div className='select'>
-                                <select className='source' onChange={(e) => getSelectedDecision(e.target.value)}>
-                                    <option value='income'>Income</option>
-                                    <option value='expense'>Expense</option>
+                                <select className='source'
+                                        data-testid="select"
+                                        onChange={(e) => getSelectedDecision(e.target.value)}
+                                >
+                                    <option value='income' data-testid="select-option">Income</option>
+                                    <option value='expense' data-testid="select-option">Expense</option>
                                 </select>
                             </div>
                         </div>
